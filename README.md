@@ -1,2 +1,2 @@
 # mailchimp-pythonic
-Automate sending monthly emails of latest Paracelsus Articles to subscribers using Mailchimp
+Automate sending monthly emails of latest Paracelsus articles to subscribers using mailchimp.
