@@ -44,8 +44,8 @@ data = {
 		"list_name":"Paracelsus",
 	},
 	"settings": {
-		"subject_line": "Paracelsus Automation Test",
-		"title":"Paracelsus Automation Test", 
+		"subject_line": "wöchentliche Paracelsus-Artikel",
+		"title":"wöchentliche Paracelsus-Artikel", 
 		"from_name": "Saikiran Yerraguntla",
 		"reply_to": "syerrag1@hawk.iit.edu",
 		"authenticate": True,
