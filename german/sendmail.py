@@ -20,7 +20,7 @@ def delete(mcc, cid,tid):
 			print("Kann die Kampagne nicht löschen")
 
 client = MailChimp(mc_api='7c2e1725d93298c0dcd73f7a54d76430-us3', mc_user='sai06ks')
-print(client.lists.all(get_all=True, fields="lists.name,lists.id"))
+
 if((client.templates.all(get_all=True))['templates'] is not None):
 	lot = json.loads(json.dumps(client.templates.all(get_all=True)))['templates']
 	mrtt = 0
@@ -44,7 +44,7 @@ data = {
 		"list_name":"Paracelsus",
 	},
 	"settings": {
-		"subject_line": "wöchentliche Paracelsus-Artikel",
+		"subject_line": "Neue Paracelsus-Artikel",
 		"title":"wöchentliche Paracelsus-Artikel", 
 		"from_name": "Saikiran Yerraguntla",
 		"reply_to": "syerrag1@hawk.iit.edu",

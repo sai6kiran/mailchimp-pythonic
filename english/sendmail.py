@@ -44,8 +44,8 @@ data = {
 		"list_name":"Paracelsus",
 	},
 	"settings": {
-		"subject_line": "Weekly New Paracelsus Articles",
-		"title":"Weekly New Paracelsus Articles", 
+		"subject_line": "New Paracelsus Articles",
+		"title":"New Paracelsus Articles", 
 		"from_name": "Saikiran Yerraguntla",
 		"reply_to": "syerrag1@hawk.iit.edu",
 		"authenticate": True,
