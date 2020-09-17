@@ -19,7 +19,8 @@ def delete(mcc, cid,tid):
 		else:
 			print("No se puede borrar la campaña")
 
-client = MailChimp(mc_api='7c2e1725d93298c0dcd73f7a54d76430-us3', mc_user='sai06ks')
+client = MailChimp(mc_api='e74188975926679e4955a3722455f1ee-us2', mc_user='MasterParacelsus')
+
 if((client.templates.all(get_all=True))['templates'] is not None):
 	lot = json.loads(json.dumps(client.templates.all(get_all=True)))['templates']
 	mrtt = 0
@@ -39,15 +40,15 @@ else:
 
 data = {
 	"recipients": {
-		"list_id": "f76e696629",
+		"list_id": "f7224a9db4",
 		"list_is_active":True,
-		"list_name":"Paracelsus",
+		"list_name":"Paracelsus Members",
 	},
 	"settings": {
 		"subject_line": "¡Nuevos artículos de Paracelso!",
 		"title":"¡Nuevos artículos de Paracelso!", 
-		"from_name": "Saikiran Yerraguntla",
-		"reply_to": "syerrag1@hawk.iit.edu",
+		"from_name": "Paracelsus \"Health & Healing\"",
+		"reply_to": "info@paracelsus-magazin.ch",
 		"authenticate": True,
 		"template_id": mrti
 	},
