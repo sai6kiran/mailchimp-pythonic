@@ -1,6 +1,7 @@
 ﻿from mailchimp3 import MailChimp
 import json
 import time
+import os
 
 
 
@@ -17,33 +18,37 @@ def delete(mcc, cid,tid):
 			delete(mcc, cid,tid)
 
 		else:
-			print("Kann die Kampagne nicht löschen")
+			print("Can not delete campaign")
 
-client = MailChimp(mc_api='e74188975926679e4955a3722455f1ee-us2', mc_user='MasterParacelsus')
+client = MailChimp(mc_api=os.getenv("mailchimp_api_key"), mc_user=os.getenv("mailchimp_admin_user"))
 
 if((client.templates.all(get_all=True))['templates'] is not None):
 	lot = json.loads(json.dumps(client.templates.all(get_all=True)))['templates']
 	mrtt = 0
 	for i in range(0, len(lot)):
 		ct = lot[i]['date_created']
+
 		date_time = ct.split('T')[0] + ' ' + ct.split('T')[1].split('+')[0]
 		pattern = '%Y-%m-%d %H:%M:%S'
 		epoch = int(time.mktime(time.strptime(date_time, pattern)))
+
+		
 		if(epoch>mrtt):
 			mrti = lot[i]['id']
 			mrtt = epoch
 else:
-	print("Es sind keine Vorlagen vorhanden")
+	print("No templates are existing")
 
 data = {
 	"recipients": {
-		"list_id": "f7224a9db4",
+		"list_id": os.getenv("mailchimp_list_id"),
 		"list_is_active":True,
 		"list_name":"Paracelsus Members",
+		"segment_opts":{"saved_segment_id":int(os.getenv("mailchimp_english_segmentid"))}
 	},
 	"settings": {
-		"subject_line": "Neue Paracelsus-Artikel",
-		"title":"wöchentliche Paracelsus-Artikel", 
+		"subject_line": "New Paracelsus Articles",
+		"title":"New Paracelsus Articles", 
 		"from_name": "Paracelsus \"Health & Healing\"",
 		"reply_to": "info@paracelsus-magazin.ch",
 		"authenticate": True,
@@ -77,4 +82,4 @@ else:
 
 client.campaigns.actions.send(campaign_id = mrci)
 delete(client, mrci,mrti)
-print("************E-Mail wurde erfolgreich gesendet!*****************")
+print("************Email was sent successfully!*****************")
