@@ -49,7 +49,7 @@ data = {
 		"subject_line": "¡Nuevos artículos de Paracelso!",
 		"title":"¡Nuevos artículos de Paracelso!", 
 		"from_name": "Paracelsus \"Health & Healing\"",
-		"reply_to": "info@paracelsus-magazin.ch",
+		"reply_to": "info.paracelsus.magazin@gmail.com",
 		"authenticate": True,
 		"template_id": mrti
 	},
